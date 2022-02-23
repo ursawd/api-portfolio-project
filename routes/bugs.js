@@ -37,16 +37,29 @@ router.post("/", async (req, res) => {
 });
 
 //-------------------------------
-//Update one
-router.patch("/:id", getBug, async (req, res) => {
-	if (req.body.name != null) {
-		res.bug.name = req.body.name;
-	}
-	if (req.body.description != null) {
-		res.bug.description = req.body.description;
-	}
+//Update one w/ partial updates
+// router.patch("/:id", getBug, async (req, res) => {
+// 	if (req.body.name != null) {
+// 		res.bug.name = req.body.name;
+// 	}
+// 	if (req.body.description != null) {
+// 		res.bug.description = req.body.description;
+// 	}
+// 	try {
+// 		const updated = await res.bug.save();
+// 		res.json(updated);
+// 	} catch (err) {
+// 		res.status(400).json({ message: err.message });
+// 	}
+// });
+
+//-------------------------------
+//Update one by replacement
+router.put("/:id", async (req, res) => {
 	try {
-		const updated = await res.bug.save();
+		const updated = await Bug.findByIdAndUpdate(req.params.id, req.body, {
+			new: true,
+		});
 		res.json(updated);
 	} catch (err) {
 		res.status(400).json({ message: err.message });
