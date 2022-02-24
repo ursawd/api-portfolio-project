@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const bugSchema = new mongoose.Schema({
 	summary: String,
-	status: {
+	info: {
 		submitter_name: String,
-		date_reported: Date,
+		date_reported: String,
 		open: Boolean,
 	},
 	where: {

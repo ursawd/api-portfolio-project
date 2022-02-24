@@ -24,10 +24,7 @@ router.get("/:id", getBug, (req, res) => {
 //-------------------------------
 //Create one
 router.post("/", async (req, res) => {
-	const bug = new Bug({
-		name: req.body.name,
-		description: req.body.description,
-	});
+	const bug = new Bug(req.body);
 	try {
 		const newBug = await bug.save();
 		res.status(201).json(newBug);
@@ -57,10 +54,11 @@ router.post("/", async (req, res) => {
 //Update one by replacement
 router.put("/:id", async (req, res) => {
 	try {
-		const updated = await Bug.findByIdAndUpdate(req.params.id, req.body, {
-			new: true,
-		});
-		res.json(updated);
+		const id = req.params.id;
+		const updates = req.body;
+		const options = { new: true };
+		const result = await Bug.findByIdAndUpdate(id, updates, options);
+		res.json(result);
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
