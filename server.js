@@ -19,5 +19,7 @@ app.use(express.json());
 
 const bugRouter = require("./routes/bugs");
 app.use("/bugs", bugRouter);
+const searchRouter = require("./routes/search");
+app.use("/search", searchRouter);
 
 app.listen(PORT, () => console.log("Server started on port 3000"));
