@@ -2,12 +2,23 @@
 	"summary": "This a summary string",
 	"info": {
 		"submitter_name": "Philip Bailey",
-		"date_reported": "jAN 1",
+		"date_reported": "Jan 1",
 		"open": true
 	},
 	"where": {
 		"platform": "Apple",
 		"o_s": "MacOS",
-		"browser": "Chrome"
+		"browser": "Safari"
+	},
+	"problem": {
+		"expected_result": "Operates normally",
+		"actual_result": "Crashes",
+		"steps_to_reproduce": "Run program"
+	},
+	"action": {
+		"severity": "Bad",
+		"assigned_to": "Jason Stone",
+		"priority": "High",
+		"actions_taken": "Every thing we can think of"
 	}
 }

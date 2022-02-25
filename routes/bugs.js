@@ -3,6 +3,20 @@ const router = express.Router();
 const Bug = require("../models/bug");
 
 //Route endpoints for bugs
+//Search: query string localhost:3000/bugs/search?info.open=true
+//also works now, see search.js
+router.get("/search", async (req, res) => {
+	filter = req.query;
+	console.log(req.query);
+	try {
+		//example of returning only "open"field, see seach.js
+		// const bugs = await Bug.find(filter, "info.open");
+		const bugs = await Bug.find(filter);
+		res.json(bugs);
+	} catch (err) {
+		res.status(500).json({ message: err.message });
+	}
+});
 
 //-------------------------------
 //Get all

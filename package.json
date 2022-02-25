@@ -1,8 +1,8 @@
 {
-	"name": "mernproject",
+	"name": "api-portfolio-project",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "server.js",
 	"scripts": {
 		"api": "nodemon server.js"
 	},
