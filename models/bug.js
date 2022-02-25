@@ -1,16 +1,25 @@
 const mongoose = require("mongoose");
 
 const bugSchema = new mongoose.Schema({
-	summary: String,
+	summary: {
+		type: String,
+		required: true,
+	},
 	info: {
 		submitter_name: String,
-		date_reported: String,
-		open: Boolean,
+		date_reported: Date, //mm/dd/yyyy
+		open: Boolean, //Bug report open or closed
 	},
 	where: {
-		platform: String,
-		o_s: String,
-		browser: String,
+		platform: {
+			type: String,
+			enum: ["Windows", "Apple", "Linix"],
+		},
+		o_s: String, //Operating system
+		browser: {
+			type: String,
+			enum: ["Chrome", "Edge", "Safari", "Other"],
+		},
 	},
 	problem: {
 		expected_result: String,
@@ -18,9 +27,15 @@ const bugSchema = new mongoose.Schema({
 		steps_to_reproduce: String,
 	},
 	action: {
-		severity: String,
+		severity: {
+			type: String,
+			enum: ["Low", "Minor", "Major", "Critical", "Blocker"],
+		},
 		assigned_to: String,
-		priority: String,
+		priority: {
+			type: String,
+			enum: ["Low", "Medium", "High"],
+		},
 		actions_taken: String,
 	},
 });

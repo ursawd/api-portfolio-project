@@ -2,7 +2,7 @@
 	"summary": "This a summary string",
 	"info": {
 		"submitter_name": "Philip Bailey",
-		"date_reported": "Jan 1",
+		"date_reported": "03012022",
 		"open": true
 	},
 	"where": {
@@ -16,7 +16,7 @@
 		"steps_to_reproduce": "Run program"
 	},
 	"action": {
-		"severity": "Bad",
+		"severity": "Critical",
 		"assigned_to": "Jason Stone",
 		"priority": "High",
 		"actions_taken": "Every thing we can think of"
