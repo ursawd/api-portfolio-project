@@ -3,7 +3,7 @@ const router = express.Router();
 const Bug = require("../models/bug");
 
 //Route endpoints for bugs
-//Search: query string localhost:3000/bugs/search?info.open=true
+//Search: query string, example -- localhost:3000/bugs/search?info.open=true
 //also works now, see search.js
 router.get("/search", async (req, res) => {
 	filter = req.query;
